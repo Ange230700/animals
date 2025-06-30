@@ -1,0 +1,81 @@
+%% docs\class-diagram.mmd
+
+classDiagram
+    %% --- Interfaces ---
+    interface FourLegged
+    interface BlackAnimal
+
+    FourLegged : +legs
+    BlackAnimal : +color
+    BlackAnimal : +name
+
+    %% --- Base class ---
+    class Animal {
+        +name: string
+    }
+
+    %% --- Cat hierarchy ---
+    class Cat {
+        +legs: number
+    }
+    Animal <|-- Cat
+    Cat ..|> FourLegged
+
+    class EuropeanCat {
+        +color: "black"
+    }
+    Cat <|-- EuropeanCat
+    EuropeanCat ..|> BlackAnimal
+
+    class ChartreuxCat
+    Cat <|-- ChartreuxCat
+
+    %% --- Dog hierarchy ---
+    class Dog {
+        +legs: number
+    }
+    Animal <|-- Dog
+    Dog ..|> FourLegged
+
+    class NewfoundlandDog {
+        +color: "black"
+    }
+    Dog <|-- NewfoundlandDog
+    NewfoundlandDog ..|> BlackAnimal
+
+    class MoonMoonDog
+    Dog <|-- MoonMoonDog
+
+    %% --- Bird hierarchy ---
+    class Bird
+    Animal <|-- Bird
+
+    class Chickadee
+    Bird <|-- Chickadee
+
+    class Blackbird {
+        +color: "black"
+    }
+    Bird <|-- Blackbird
+    Blackbird ..|> BlackAnimal
+
+    %% --- Fish hierarchy ---
+    class Fish
+    Animal <|-- Fish
+
+    class Tuna
+    Fish <|-- Tuna
+
+    class Shark
+    Fish <|-- Shark
+
+    %% --- Insect hierarchy ---
+    class Insect
+    Animal <|-- Insect
+
+    class Maggot
+    Insect <|-- Maggot
+
+    %% --- Notes ---
+    %% ..|> is "implements"
+    %% <|-- is "extends/inherits"
